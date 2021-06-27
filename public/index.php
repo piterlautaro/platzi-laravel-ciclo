@@ -21,6 +21,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
+#1.- Se cargan las clases de PHP
 require __DIR__.'/../vendor/autoload.php';
 
 /*
@@ -35,6 +36,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
+#2.- Se arranca el framework Laravel
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
 /*
@@ -49,6 +51,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
+#3.- Comienza el sistema a aceptar cualquier solicitud
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
