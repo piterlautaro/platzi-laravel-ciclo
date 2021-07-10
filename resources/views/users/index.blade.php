@@ -16,6 +16,39 @@
             <div class="row">
                 <div class="col-sm-8 mx-auto">
 
+                    <div class="card border-0 shadow mt-5 pt-2">
+                        <div class="card-title">
+                            <h3 class="text-center">Listado de usuarios</h3>
+                        </div>
+                        <div class="card-body">
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    @foreach ($errors->all() as $error)
+                                    - {{ $error }} <br>
+                                    @endforeach
+                                </div>
+                            @endif
+
+                            <form action="{{ route('users.store') }}" method="POST">
+                                <div class="form-row">
+                                    <div class="col-sm-3">
+                                        <input type="text" name="name" class="form-control" placeholder="User name" value="{{ old('name') }}">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="password" name="password" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        @csrf
+                                        <button type="submit" class="form-control btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
                     <table class="table">
                         <thead>
